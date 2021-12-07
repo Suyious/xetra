@@ -1,0 +1,31 @@
+.Collections_wrapper {
+  max-width: 95vw;
+  margin: 0 auto;
+  margin-top: 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.Collections_twotoone{
+  display: flex;
+  width: 100%;
+}
+
+.Collections_twotoone > *:nth-child(1){
+  flex: 1 1 30%
+}
+.Collections_twotoone > *:nth-child(2){
+  flex: 1 1 70%
+}
+
+.Collections_card{
+    /* min-height: 10em; */
+    margin: 1em;
+    border: 0.97px solid #FFFFFF;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+}
+

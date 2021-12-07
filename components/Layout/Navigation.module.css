@@ -1,0 +1,75 @@
+.Navigation {
+  /* background: rgba(255, 255, 255, 0.137); */
+  position: fixed;
+  width: 100vw;
+  z-index: 1;
+}
+
+.wrapper{
+  max-width: 95vw;
+  margin: 0 auto;
+  padding: 1em 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Nav_left,
+.Nav_searchbar,
+.Nav_right,
+.Nav_centre,
+.Nav_menu,
+.Nav_searchbutton,
+.Nav_right_trending{
+  display: flex;
+  align-items:center;
+}
+
+.Nav_menu,
+.Nav_right_trending{
+  margin-right: 1.5em;
+  cursor: pointer;
+}
+
+.Nav_searchbar{
+  background: #C4C4C466;
+  padding: 0.5em 1em 0.5em 1.5em;
+  border-radius: 12px;
+  margin: 0 1em;
+}
+
+.Nav_searchinput{
+  background: none;
+  outline: none;
+  border: none;
+  width: 32em;
+  max-width: 50vw;
+  color: #ffffff;
+  font-family: Montserrat, sans-serif;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+.Nav_searchinput::-webkit-input-placeholder{
+  color: #d4d4d4;
+  font-weight: 300;
+}
+
+.Nav_right_button{
+  padding: 0.5em 3em;
+  font-family: Poppins;
+  font-size: 0.9em;
+  border: none;
+  outline: none;
+  background: #fff;
+  border-radius: 35px;
+  cursor: pointer;
+}
+
+
+.Nav_logo {
+  font-family: Playfair Display;
+  font-size: 1.4em;
+  font-weight: 900;
+  color: #fff;
+}

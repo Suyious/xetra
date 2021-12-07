@@ -1,0 +1,99 @@
+.Header{
+    position: relative;
+    height: 90vh;
+    overflow: hidden;
+}
+
+.Header_Background{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.Header_Background_overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #00000050;
+}
+
+.Header_container{
+    position: absolute;
+    width: fit-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.Header_container_heading{
+    font-family: Poppins, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #EDEDED;
+    font-size: 2.5em;
+    max-width: 100vw;
+    width: 90vw;
+    text-align: center;
+}
+
+.Header_container_button{
+    outline: none;
+    background: #fff;
+    border: none;
+    margin: 0.5em auto;
+    border-radius: 50px;
+    padding: 0.7em 2.5em 1em 7em;
+    width: 25em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Poppins, sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.Header_container_subtext{
+    color: #fff;
+    font-family: Poppins, sans-serif;
+    font-weight: 300;
+    text-align: center;
+}
+
+.Header_subtext_span{
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.Header_container_searchbox{
+    background: #DBDBDB;
+    padding: 0.5em 2em;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Header_container_searchbar{
+    outline: none;
+    border: none;
+    background: none;
+    width: 40em;
+    font-family: Roboto, sans-serif;
+    font-size: 1em;
+}
+
+.Header_container_searchbar::placeholder{
+    font-weight: 300;
+}
+
+.Header_gradient{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 10em;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(15, 0, 0, 0.34) 38.02%, #000000 100%);
+}
