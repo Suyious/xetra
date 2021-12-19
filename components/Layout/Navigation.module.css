@@ -25,6 +25,13 @@
   align-items:center;
 }
 
+.Nav_searchbutton{
+  outline: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .Nav_menu,
 .Nav_right_trending{
   margin-right: 1.5em;

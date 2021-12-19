@@ -1,8 +1,11 @@
 import { combineReducers } from "redux";
-import { collectionReducer } from "./collectionReducer";
+import { collectionProductsReducer, collectionReducer } from "./collectionReducer";
+import { productReducer } from "./productReducer";
 
 const rootReducer = combineReducers({
-    collection: collectionReducer
+    collection: collectionReducer,
+    product: productReducer,
+    collectionProducts: collectionProductsReducer
 });
 
 export default rootReducer;

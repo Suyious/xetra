@@ -1,0 +1,10 @@
+.ErrorPage{
+    background: #000;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.ErrorMessage{
+    text-align: center;
+}

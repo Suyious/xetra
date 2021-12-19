@@ -23,13 +23,20 @@ const Header = () => {
         </div>
       ) : (
         <div className={styles.Header_container}>
+            <h1 className={styles.Header_container_site_name}>Xetra</h1>
+            <p className={styles.Header_container_site_desc}>Your go to for online shopping.</p>
             <div className={styles.Header_container_searchbox}>
                 <input type="text" className={styles.Header_container_searchbar} placeholder="Search what you need.."/>
                 <div className={styles.Header_container_searchicon}>
                   <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg"><g clipPath="url(#clip0_664:1777)"><path d="M29.7129 26.1576L25.6236 22.0684C25.4391 21.8838 25.1889 21.7812 24.9264 21.7812H24.2578C25.3898 20.3334 26.0625 18.5123 26.0625 16.5312C26.0625 11.8186 22.2439 8 17.5312 8C12.8186 8 9 11.8186 9 16.5312C9 21.2439 12.8186 25.0625 17.5312 25.0625C19.5123 25.0625 21.3334 24.3898 22.7812 23.2578V23.9264C22.7812 24.1889 22.8838 24.4391 23.0684 24.6236L27.1576 28.7129C27.5432 29.0984 28.1666 29.0984 28.548 28.7129L29.7088 27.5521C30.0943 27.1666 30.0943 26.5432 29.7129 26.1576ZM17.5312 21.7812C14.6314 21.7812 12.2812 19.4352 12.2812 16.5312C12.2812 13.6314 14.6273 11.2812 17.5312 11.2812C20.4311 11.2812 22.7812 13.6273 22.7812 16.5312C22.7812 19.4311 20.4352 21.7812 17.5312 21.7812Z" fill="#4B4B4B"/></g><defs><clipPath id="clip0_664:1777"><rect width="21" height="21" fill="white" transform="translate(9 8)"/></clipPath></defs></svg>
                 </div>
             </div>
-            <div className={styles.Header_container_subtext}></div>
+            <div className={styles.Header_container_subtext}>Trending: 
+              <a className={styles.Header_container_subtext_links} href="#">Summer</a>
+              <a className={styles.Header_container_subtext_links} href="#">Tracksuit</a>
+              <a className={styles.Header_container_subtext_links} href="#">Trousers</a>
+              <a className={styles.Header_container_subtext_links} href="#">Jeans</a>
+            </div>
         </div>
       )}
       <div className={styles.Header_gradient}/>

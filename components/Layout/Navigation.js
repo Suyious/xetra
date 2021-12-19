@@ -1,6 +1,26 @@
 import styles from "./Navigation.module.css";
-
+import Link from "next/link"
+import { useEffect, useState } from "react";
+import {useRouter} from "next/router"
+ 
 const Navigation = () => {
+
+  const [keyword, setKeyword] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
+  const router = useRouter() 
+
+  const searchHandler = (e) => {
+    e.preventDefault();
+    if(keyword){
+      router.push(`/products?keyword=${keyword}`)
+    }
+  }
+
+  // clearing search bar
+  useEffect(()=>{
+    if(!router.query.keyword) setKeyword("");
+  },[router.pathname])
+
   return (
     <div className={styles.Navigation}>
       <div className={styles.wrapper}>
@@ -12,16 +32,20 @@ const Navigation = () => {
               <rect x="8" y="23.9766" width="20.1257" height="2.21636" rx="1.10818" fill="white"/>
             </svg>
           </div>
-          <div className={styles.Nav_logo}>Xetra.</div>
+          <Link href="/">
+            <a className={styles.Nav_logo}>Xetra.</a>
+          </Link>
         </div>
         <div className={styles.Nav_centre}>
-          <form className={styles.Nav_searchbar} action="">
+          <form onSubmit={searchHandler} className={styles.Nav_searchbar} action="">
             <input
               className={styles.Nav_searchinput}
               type="search"
               placeholder="Search what you need.."
+              value={keyword}
+              onChange={e=>setKeyword(e.target.value)}
             />
-            <div className={styles.Nav_searchbutton}>
+            <button className={styles.Nav_searchbutton}>
               <svg
                 width="28"
                 height="28"
@@ -46,37 +70,45 @@ const Navigation = () => {
                   </clipPath>
                 </defs>
               </svg>
-            </div>
+            </button>
           </form>
         </div>
         <div className={styles.Nav_right}>
-          <div className={styles.Nav_right_trending}>
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 38 38"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g clipPath="url(#clip0_662:1078)">
-                <path
-                  d="M19.7893 6.96589C19.7893 5.70633 18.1957 5.23162 17.4938 6.27578C11.0543 15.8563 20.2053 16.2877 20.2053 20.9448C20.2053 22.8305 18.6917 24.3562 16.8334 24.3314C15.0048 24.3075 13.55 22.7559 13.55 20.8946V16.3692C13.55 15.2207 12.1737 14.6635 11.3959 15.4959C10.004 16.9841 8.55859 19.5334 8.55859 22.6384C8.55859 28.2413 13.0368 32.7995 18.5415 32.7995C24.0461 32.7995 28.5243 28.2413 28.5243 22.6384C28.5243 13.6262 19.7893 12.4243 19.7893 6.96589V6.96589Z"
-                  fill="white"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_662:1078">
-                  <rect
-                    width="19.9657"
-                    height="27.0963"
+          <Link href="/products">
+            <a className={styles.Nav_right_trending}>
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 38 38"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clipPath="url(#clip0_662:1078)">
+                  <path
+                    d="M19.7893 6.96589C19.7893 5.70633 18.1957 5.23162 17.4938 6.27578C11.0543 15.8563 20.2053 16.2877 20.2053 20.9448C20.2053 22.8305 18.6917 24.3562 16.8334 24.3314C15.0048 24.3075 13.55 22.7559 13.55 20.8946V16.3692C13.55 15.2207 12.1737 14.6635 11.3959 15.4959C10.004 16.9841 8.55859 19.5334 8.55859 22.6384C8.55859 28.2413 13.0368 32.7995 18.5415 32.7995C24.0461 32.7995 28.5243 28.2413 28.5243 22.6384C28.5243 13.6262 19.7893 12.4243 19.7893 6.96589V6.96589Z"
                     fill="white"
-                    transform="translate(8.55859 5.7041)"
                   />
-                </clipPath>
-              </defs>
-            </svg>
-          </div>
-          <button className={styles.Nav_right_button}>Sign Up</button>
+                </g>
+                <defs>
+                  <clipPath id="clip0_662:1078">
+                    <rect
+                      width="19.9657"
+                      height="27.0963"
+                      fill="white"
+                      transform="translate(8.55859 5.7041)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
+            </a>
+          </Link>
+          {!loggedIn ? 
+          <button onClick={()=>setLoggedIn(!loggedIn)} className={styles.Nav_right_button}>Sign Up</button>
+          : <Link href="/cart">
+              <a className={styles.Nav_signup_button}>
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.8352 19.585C9.87271 19.585 9.09396 20.3725 9.09396 21.335C9.09396 22.2975 9.87271 23.085 10.8352 23.085C11.7977 23.085 12.5852 22.2975 12.5852 21.335C12.5852 20.3725 11.7977 19.585 10.8352 19.585ZM6.4602 5.58496C5.97696 5.58496 5.58521 5.97671 5.58521 6.45996V6.45996C5.58521 6.94321 5.97696 7.33496 6.46021 7.33496H6.6572C7.07127 7.33496 7.44831 7.57343 7.62576 7.94755L9.43627 11.7647C10.0949 13.1533 10.0457 14.7739 9.30396 16.12V16.12C9.16396 16.365 9.08521 16.6537 9.08521 16.96C9.08521 17.9225 9.87271 18.71 10.8352 18.71H20.4602C20.9435 18.71 21.3352 18.3182 21.3352 17.835V17.835C21.3352 17.3517 20.9435 16.96 20.4602 16.96H11.2027C11.0982 16.96 11.0128 16.8899 10.99 16.7933C10.9819 16.7593 10.9882 16.7241 10.9967 16.6902V16.6902C11.0057 16.6544 11.0193 16.6198 11.0371 16.5875L11.1528 16.378C11.5507 15.6574 12.3088 15.21 13.1319 15.21H18.3165C18.9727 15.21 19.5502 14.8512 19.8477 14.3087L22.9802 8.62996C23.0502 8.50746 23.0852 8.35871 23.0852 8.20996C23.0852 7.72871 22.6915 7.33496 22.2102 7.33496H10.2358C9.64568 7.33496 9.10871 6.99402 8.85771 6.45996V6.45996C8.6067 5.92591 8.06973 5.58496 7.47963 5.58496H6.4602ZM19.5852 19.585C18.6227 19.585 17.844 20.3725 17.844 21.335C17.844 22.2975 18.6227 23.085 19.5852 23.085C20.5477 23.085 21.3352 22.2975 21.3352 21.335C21.3352 20.3725 20.5477 19.585 19.5852 19.585Z" fill="white"/></svg>
+              </a>
+            </Link>}
         </div>
       </div>
     </div>
