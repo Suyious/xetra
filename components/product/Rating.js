@@ -1,4 +1,4 @@
-const Rating = ({ rating }) => {
+const Rating = ({ rating, size=1 }) => {
   if (!rating) return <div>Not Rated</div>;
 
   const intPart = Math.floor(rating);
@@ -8,8 +8,8 @@ const Rating = ({ rating }) => {
     ratingArr.push(
       <svg
         key={i}
-        width="25"
-        height="25"
+        width={`${size*25}`}
+        height={`${size*25}`}
         viewBox="0 0 18 18"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -37,8 +37,8 @@ const Rating = ({ rating }) => {
     ratingArr.push(
       <svg
         key={0}
-        width="25"
-        height="25"
+        width={`${size*25}`}
+        height={`${size*25}`}
         viewBox="0 0 18 18"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

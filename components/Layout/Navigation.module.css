@@ -3,6 +3,9 @@
   position: fixed;
   width: 100vw;
   z-index: 1;
+  overflow: hidden;
+  height: 4em;
+
 }
 
 .wrapper{
@@ -25,6 +28,14 @@
   align-items:center;
 }
 
+/* ------Search Bar--------- */
+
+.Nav_centre{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .Nav_searchbutton{
   outline: none;
   background: transparent;
@@ -39,18 +50,19 @@
 }
 
 .Nav_searchbar{
-  background: #C4C4C466;
+  background: #505050ce;
   padding: 0.5em 1em 0.5em 1.5em;
   border-radius: 12px;
   margin: 0 1em;
 }
+
 
 .Nav_searchinput{
   background: none;
   outline: none;
   border: none;
   width: 32em;
-  max-width: 50vw;
+  max-width: 75vw;
   color: #ffffff;
   font-family: Montserrat, sans-serif;
   font-size: 0.9em;
@@ -61,6 +73,12 @@
   color: #d4d4d4;
   font-weight: 300;
 }
+
+@media all and (max-width: 480px){
+  .Nav_centre{
+    top: 4.5em;
+  }
+} 
 
 .Nav_right_button{
   padding: 0.5em 3em;

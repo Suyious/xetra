@@ -1,6 +1,7 @@
 .Header{
     position: relative;
     height: 90vh;
+    height: calc(var(--vh,1vh) * 90);
     overflow: hidden;
 }
 

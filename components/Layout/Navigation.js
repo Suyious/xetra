@@ -22,7 +22,7 @@ const Navigation = () => {
   },[router.pathname])
 
   return (
-    <div className={styles.Navigation}>
+    <nav className={styles.Navigation}>
       <div className={styles.wrapper}>
         <div className={styles.Nav_left}>
           <div className={styles.Nav_menu}>
@@ -111,7 +111,7 @@ const Navigation = () => {
             </Link>}
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

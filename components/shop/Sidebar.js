@@ -1,6 +1,6 @@
 import styles from "../../styles/Shop.module.css";
 
-const Sidebar = () => {
+const Sidebar = ({open, setOpen}) => {
   const cfilters = [
     "Shirts",
     "T-Shirts",
@@ -12,16 +12,16 @@ const Sidebar = () => {
   ];
   const pfilters = [
     "less than $100",
-    "$100-$500",
-    "$500-$1000",
-    "$1000-$2000",
-    "$2000-$3000",
-    "$3000-$5000",
+    "$100 - $500",
+    "$500 - $1000",
+    "$1000 - $2000",
+    "$2000 - $3000",
+    "$3000 - $5000",
     "$5000 or more",
   ];
 
   return (
-    <div className={styles.Shop_sidebar_body}>
+    <div className={`${styles.Shop_sidebar_body} ${open?styles.Shop_sidebar_body_toggle : ""}`}>
       <div className={styles.Shop_sidebar_title}>
         <svg
           width="30"
@@ -48,6 +48,7 @@ const Sidebar = () => {
           </defs>
         </svg>
         <span>Apply Filters</span>
+        <span className={styles.Shop_sidebar_cancel} onClick={()=>setOpen(!open)}>Cancel</span>
       </div>
       <div className={styles.Shop_sidebar_filter}>
         <span className={styles.Shop_sidebar_filter_title}>categories</span>

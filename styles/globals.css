@@ -5,6 +5,12 @@
   box-sizing: border-box;
 }
 
+@media all and (max-width: 600px){
+  :root{
+    font-size: 14px;
+    -webkit-tap-highlight-color: #17171759;
+  }
+}
 
 body{
   background: #000;

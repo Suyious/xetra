@@ -11,15 +11,19 @@ import ProductMain from "../../components/product/ProductMain";
 const Products = () => {
 
   const dispatch = useDispatch();
-  const {loading, error, products, productCount} = useSelector((state) => state.product);
+  const {loading, error, products, productCount} = useSelector((state) => state.products);
 
   const router = useRouter();
-  const {keyword, product_id} = router.query;
+  const {keyword, product_id, page} = router.query;
 
   useEffect(()=>{
-    if(keyword) dispatch(getAllProducts(keyword))
-    else dispatch(getAllProducts())
-  },[dispatch,keyword])
+    dispatch(getAllProducts(keyword || "",page || 1));
+  },[dispatch,keyword,page])
+
+  // useEffect(()=>{
+  //   if(product_id) document.querySelector("body").style.setProperty("overflow","hidden");
+  //   if(!product_id) document.querySelector("body").style.setProperty("overflow","");
+  // },[product_id])
 
   return (
     <div className={styles.Products_body}>

@@ -2,19 +2,31 @@ import styles from "../../styles/products.module.css";
 import Image from "next/image";
 import Rating from "./Rating";
 import { useState } from "react";
+import Link from "next/link"
+import Price from "./Price";
 import { useRouter } from "next/router";
 
 const ProductCard = ({ product }) => {
   const { name, price, ratings, description } = product;
   const [liked, setLiked] = useState(false);
+  
+  const {pathname, query} = useRouter();
+  const prefix = ""
+
+  const queryParams = Object.keys(query);
+  queryParams.forEach((key,i)=>{
+      prefix+=`${key}=${query[key]}&`;
+  })
 
   return (
     <div className={styles.Product_card}>
       <div className={styles.Product_card_container}>
-        <div className={styles.Product_card_image_container}>
-          <Image src="/ProductImage.jpg" width="273" height="377" />
-          <div className={styles.Product_card_image_overlay} />
-        </div>
+        <Link key={product._id} href={`${pathname}?${prefix}product_id=${product._id}`} as={`products/${product._id}`} scroll={false}>
+          <a><div className={styles.Product_card_image_container}>
+            <Image src="/ProductImage.jpg" width="273" height="377" />
+            <div className={styles.Product_card_image_overlay} />
+          </div></a>
+        </Link>
         <div className={styles.Product_card_rating}>
           <div className={styles.Product_card_rating_overlay} />
           <div className={styles.Product_card_rating_stars}>
@@ -26,15 +38,7 @@ const ProductCard = ({ product }) => {
           <div className={styles.Product_card_details_text}>
             <div className={styles.Product_card_details_top}>
               <div className={styles.Product_card_details_price}>
-                <span className={styles.Product_card_details_price_currency}>
-                  $
-                </span>
-                <span className={styles.Product_card_details_price_main}>
-                  {price}
-                </span>
-                <span className={styles.Product_card_details_price_sub}>
-                  00
-                </span>
+                <Price price={price}/>
               </div>
               <div
                 onClick={() => setLiked(!liked)}

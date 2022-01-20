@@ -2,7 +2,7 @@ import styles from "../../styles/Shop.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const ShopNav = ({ name, productCount }) => {
+const ShopNav = ({ name, productCount, loading }) => {
   const router = useRouter();
   const { keyword } = router.query;
 
