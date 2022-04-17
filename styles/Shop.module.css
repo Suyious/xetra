@@ -51,6 +51,7 @@
 
 .Shop_catalog{
     width: 100%;
+    min-height: 80vh;
 }
 
 .Shop_sidebar_body{
@@ -128,6 +129,12 @@
     margin: 0.5em 0;
 }
 
+.Shop_sidebar_filter_check .Shop_sidebar_filter_checkbox svg{
+    width: 23;
+    height: auto;
+    cursor: pointer;
+}
+
 .Shop_sidebar_filter_check span{
     font-weight: 500;
     font-size: 0.9em;
@@ -143,6 +150,10 @@
 
 .Shop_catalog_filters_button{
     cursor: pointer;
+}
+
+.Shop_sidebar_filter_horizon{
+    display: flex;
 }
 
 .Shop_catalog_products{

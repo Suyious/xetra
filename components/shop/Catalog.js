@@ -38,7 +38,7 @@ const Catalog = ({ loading, error, products, setSideBarOpen, sideBarOpen }) => {
       </div>
       <div className={`${styles.Shop_catalog_products} ${sideBarOpen? styles.Shop_catalog_products_sidebar_toggled:""}`}>
         {loading ? (
-          Array(10).fill(<div><ProductCardSkeleton/></div>)
+          Array.from({length: 10}, (_, i) => (<div key={i}><ProductCardSkeleton/></div>))
         ) : error ? (
           <div className="">Error Occurred: {error.message}</div>
         ) : products.length > 0 ? (

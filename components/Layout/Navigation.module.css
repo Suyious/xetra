@@ -5,11 +5,10 @@
   z-index: 1;
   overflow: hidden;
   height: 4em;
-
 }
 
 .wrapper{
-  max-width: 95vw;
+  max-width: 90vw;
   margin: 0 auto;
   padding: 1em 0;
   display: flex;
@@ -44,15 +43,18 @@
 }
 
 .Nav_menu,
-.Nav_right_trending{
+.Nav_right_trending,
+.Nav_wishlist_button,
+.Nav_cart_button{
   margin-right: 1.5em;
   cursor: pointer;
+  display: flex;
 }
 
 .Nav_searchbar{
   background: #505050ce;
   padding: 0.5em 1em 0.5em 1.5em;
-  border-radius: 12px;
+  border-radius: 9px;
   margin: 0 1em;
 }
 
@@ -82,8 +84,9 @@
 
 .Nav_right_button{
   padding: 0.5em 3em;
-  font-family: Poppins;
+  font-family: Montserrat;
   font-size: 0.9em;
+  font-weight: 600;
   border: none;
   outline: none;
   background: #fff;
@@ -91,10 +94,25 @@
   cursor: pointer;
 }
 
+.Nav_authenticated_buttons{
+  display: flex;
+  align-items: center;
+}
 
 .Nav_logo {
   font-family: Playfair Display;
   font-size: 1.4em;
   font-weight: 900;
   color: #fff;
+}
+
+.Nav_account_options{
+  background: #d4d4d4;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  color: #000;
 }

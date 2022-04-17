@@ -5,8 +5,8 @@ import { useRouter } from "next/router";
 const Pagination = ({loading, numOfItems, itemsPerPage}) => {
 
     const router = useRouter();
-    const currentPage = parseInt(router.query.page) || 1
-    const {pathname} = router;
+    const {pathname, query} = router;
+    const currentPage = parseInt(query.page) || 1
     const numOfPages = Math.ceil(numOfItems/itemsPerPage);
     const [pages, setPages] = useState([]);
     useEffect(()=>{
@@ -20,19 +20,19 @@ const Pagination = ({loading, numOfItems, itemsPerPage}) => {
 
     return (
         <div className="Pagination_body">
-            {currentPage!== 1 && <Link href={`${pathname}?page=${currentPage - 1}`}>
+            {numOfPages>1 && currentPage!== 1 && <Link href={{ pathname: pathname, query: {...query, page: currentPage - 1}}}>
                 <a className="Pagination_button Pagination_button_previous">Prev</a>
             </Link>}
             <div className="Pagination_pages">
                 {loading? 
-                    Array(5).fill(<div className="Pagination_page loading"/>)
-                : pages.map(page=>(
-                    <Link key={page} href={`${pathname}?page=${page}`}>
+                    Array.from({length: 5}, (_, i) => (<div key={i} className="Pagination_page loading"/>))
+                : numOfPages>1 && pages.map(page=>(
+                    <Link key={page} href={{ pathname: pathname, query: {...query, page: page}}}>
                         <a className={`Pagination_page ${page===currentPage && "selected"}`}>{page}</a>
                     </Link>
                 ))}
             </div>
-            {currentPage!==numOfPages && <Link href={`${pathname}?page=${currentPage + 1}`}>
+            {numOfPages>1 && currentPage!==numOfPages && <Link href={{ pathname: pathname, query: {...query, page: currentPage + 1}}}>
                 <a className="Pagination_button Pagination_button_next">Next</a>
             </Link>}
             <style jsx>{`

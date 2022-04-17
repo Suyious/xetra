@@ -1,13 +1,16 @@
 import { CLEAR_ERRORS, PRODUCTS_FAIL, PRODUCTS_REQUEST, PRODUCTS_SUCCESS, PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS, PRODUCT_DETAILS_FAIL } from "../types/productTypes"
 import axios from "../../utils/axios"
 
-export const getAllProducts = (keyword="",page=1) => async(dispatch) => {
+export const getAllProducts = (keyword="",page=1,price=[0, 1000000],category,ratings=0) => async(dispatch) => {
     try{
         dispatch({
             type: PRODUCTS_REQUEST
         })
 
-        let link =`/api/v1/products?keyword=${keyword}&page=${page}`
+        let link =`/api/v1/products?keyword=${keyword}&page=${page}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`
+        if(category){
+            link += `&category=${category}`
+        }
 
         const {data} = await axios.get(link)
 

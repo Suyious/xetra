@@ -8,24 +8,59 @@
   flex-wrap: wrap;
 }
 
-.Collections_twotoone{
-  display: flex;
-  width: 100%;
-}
-
-.Collections_twotoone > *:nth-child(1){
-  flex: 1 1 30%
-}
-.Collections_twotoone > *:nth-child(2){
-  flex: 1 1 70%
-}
-
-.Collections_card{
-    /* min-height: 10em; */
+.CollectionCard_main{
     margin: 1em;
     border: 0.97px solid #FFFFFF;
     border-radius: 25px;
     overflow: hidden;
     position: relative;
+    display: flex;
 }
 
+.CollectionsCard_image_container{
+  position: relative;
+  display: flex;
+}
+
+.Collection_card_image_overlay{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 17.61%, #000000 98.45%);
+}
+
+.CollectionCard_Text{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1.5em;
+  font: Roboto;
+}
+
+.CollectionCard_Title{
+  font-weight: 300;
+  color: #DADADA;
+  font-size: 2.8em;
+  margin-bottom: 0.5em;
+}
+
+.CollectionCard_bottom{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.CollectionCard_bottom_left{
+  font-size: 1.5em;
+  color: #DADADA;
+}
+
+.CollectionCard_bottom_button{
+  padding: 0.5em 2em;
+  background: #B0ADAD8F;
+  border-radius: 6px;
+  font-weight: 500;
+  color: #F1F1F1;
+}

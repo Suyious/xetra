@@ -23,7 +23,7 @@ const ProductCard = ({ product }) => {
       <div className={styles.Product_card_container}>
         <Link key={product._id} href={`${pathname}?${prefix}product_id=${product._id}`} as={`products/${product._id}`} scroll={false}>
           <a><div className={styles.Product_card_image_container}>
-            <Image src="/ProductImage.jpg" width="273" height="377" />
+            <Image src="/ProductImage.jpg" objectFit="cover" width="273z" height="377" />
             <div className={styles.Product_card_image_overlay} />
           </div></a>
         </Link>

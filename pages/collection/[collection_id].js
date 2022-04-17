@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Shop from "../../components/shop";
 import { useEffect } from "react";
 import { getCollectionProducts } from "../../redux/actions/collectionAction";
-import ProductModal from "../../components/Layout/ProductModal";
+import ProductModal from "../../components/Layout/Modal/ProductModal";
 import ProductMain from "../../components/product/ProductMain";
 
 const Collection = () => {

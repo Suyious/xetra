@@ -2,10 +2,11 @@ import styles from "../../styles/Shop.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const ShopNav = ({ name, productCount, loading }) => {
+const ShopNav = ({ name, productCount,resultsInQuery, loading }) => {
   const router = useRouter();
   const { keyword } = router.query;
 
+  
   return (
     <div className={styles.ShopNav_body}>
       <div className={styles.ShopNav_tree}>
@@ -133,9 +134,10 @@ const ShopNav = ({ name, productCount, loading }) => {
           </>
         )}
       </div>
-      {productCount && (
-        <div className={styles.ShopNav_count}>{productCount} items</div>
-      )}
+      {loading ?
+        <div className={styles.ShopNav_count}>Fetching Products...</div>
+        :<div className={styles.ShopNav_count}>{resultsInQuery} items</div>
+      }
     </div>
   );
 };

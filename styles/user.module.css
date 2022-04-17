@@ -5,30 +5,64 @@
     font-family: Montserrat, sans-serif;
 }
 
-.Auth_container{
+.Auth_container,
+.Auth_modal_container{
     width: 30em;
-    
     border-radius: 10px;
     padding: 3em 2em;
 }
 
-@media all and (min-width: 1080px){
+@media all and (min-width: 680px){
     .Auth_container{
         position: absolute;
         top: 10em;
         left: 5em;
         background: #171717;
     }
+    .Auth_modal_container{
+        position: absolute;
+        top: 40vh;
+        left: 50vw;
+        transform: translate(-50%,-50%);
+        background: #000;
+        border: solid 0.8px #ddddddc9;
+        padding: 3.5em 2em 3em 2em;
+    }
 }
 
-@media all and (max-width: 1080px){
+@media all and (max-width: 680px){
     .Auth_Main{
         padding-top: 9vh;
     }
     .Auth_container{
         margin: 0 auto;
     }
+    .Auth_modal_container{
+        position: absolute;
+        padding-top: 9vh;
+        width: 100vw;
+        height: 100vh;
+        background: #171717;
+    }
 }
+
+.Auth_modal_close_button_container{
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    cursor: pointer;
+}
+
+@keyframes flyin {
+    from{
+        transform: translateX(-100%);
+    } to {
+        transform: translateX(0);
+    }
+}
+
+/* Auth Modal */
+
 
 .Auth_top_label{
     font-family: Montserrat;

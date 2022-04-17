@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getCollections } from "../redux/actions/collectionAction";
+import Image from "next/image";
+import CollectionCard from "./product/CollectionCard";
 
 const Collections = () => {
   const dispatch = useDispatch();
@@ -14,6 +16,8 @@ const Collections = () => {
     dispatch(getCollections());
   }, [dispatch]);
 
+  const sizes = [1, 3];
+
   return (
     <div className={styles.Collections}>
       {loading ? (
@@ -22,23 +26,29 @@ const Collections = () => {
         <div>Error Occured: {error.message}</div>
       ) : (
         <div className={styles.Collections_wrapper}>
-          <div className={styles.Collections_twotoone}>
-            {collections &&
-              collections.map((collection, i) => (
-                <Link key={i} href={`/collection/${encodeURIComponent(collection._id)}`}>
-                  <a><div className={styles.Collections_card}>
-                    {collection.name}
-                  </div></a>
-                </Link>
-              ))}
-            {collections &&
-              collections.map((collection, i) => (
-                <Link key={i} href={`/collection/[collection_id]?collection_id=${collection._id}`} as={`collection/${collection._id}`}>
-                  <a><div className={styles.Collections_card}>
-                    {collection.name}
-                  </div></a>
-                </Link>
-              ))}
+          <div>
+            <CollectionCard src="/sample002.jpg" size={1} />
+          </div>
+          <div>
+            <CollectionCard src="/sample001.jpg" size={3} />
+          </div>
+          <div>
+            <CollectionCard src="/sample001.jpg" size={3} />
+          </div>
+          <div>
+            <CollectionCard src="/sample002.jpg" size={1} />
+          </div>
+          <div>
+            <CollectionCard src="/sample002.jpg" size={1} />
+          </div>
+          <div>
+            <CollectionCard src="/sample002.jpg" size={1} />
+          </div>
+          <div>
+            <CollectionCard src="/sample002.jpg" size={1} />
+          </div>
+          <div>
+            <CollectionCard src="/sample002.jpg" size={1} />
           </div>
         </div>
       )}

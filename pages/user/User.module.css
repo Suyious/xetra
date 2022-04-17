@@ -1,0 +1,10 @@
+.User_body{
+    min-height: 100vh;
+    min-height: calc(var(--vh,1vh) * 100);
+}
+
+.User_wrapper{
+    margin: 0 auto;
+    padding-top: 5em;
+    max-width: 90vw;
+}

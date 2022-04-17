@@ -5,7 +5,7 @@ import Catalog from "./Catalog"
 import ShopNav from "./ShopNav"
 import Sidebar from "./Sidebar"
 
-const Shop = ({CollectionName, loading, error, products, productCount}) => {
+const Shop = ({CollectionName, loading, error, products, productCount, resultsInQuery}) => {
 
     const [sideBarOpen, setSideBarOpen] = useState(false);
     
@@ -17,12 +17,12 @@ const Shop = ({CollectionName, loading, error, products, productCount}) => {
     return (
         <div className={styles.Shop_body}>
             {false && <div className={styles.Shop_banner}>Banner here</div>}
-            <ShopNav name={CollectionName} loading={loading} productCount={productCount}/>
+            <ShopNav name={CollectionName} loading={loading} productCount={productCount} resultsInQuery={resultsInQuery}/>
             <div className={styles.Shop_list}>
                 <Sidebar open={sideBarOpen} setOpen={setSideBarOpen}/>
                 <Catalog loading={loading} error={error} products={products} setSideBarOpen={setSideBarOpen} sideBarOpen={sideBarOpen}/>
             </div>
-            <Pagination loading={loading} numOfItems={productCount} itemsPerPage={7}/>
+            <Pagination loading={loading} numOfItems={resultsInQuery} itemsPerPage={7}/>
             {sideBarOpen && <div className={styles.Shop_sidebar_buttons}>
                 <button className={styles.Shop_sidebar_applyFiltersButton}>
                 Apply Filters
