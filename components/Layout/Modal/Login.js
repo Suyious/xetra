@@ -21,10 +21,12 @@ const Login = () => {
 
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  const [showErrors, setShowErrors] = useState(false);
   
   const loginHandler = (e) => {
     e.preventDefault();
     dispatch(loginUser(loginEmail,loginPassword));
+    setShowErrors(true)
   }
 
   useEffect(()=>{
@@ -74,7 +76,7 @@ const Login = () => {
       <div className={styles.Auth_MainButton}>
         <button onClick={loginHandler} disabled={loading}>{loading? "loading...":"login"}</button>
       </div>
-      {isAuthenticated && "loggedIn"}
+      {!loading && !isAuthenticated && showErrors && <div className={styles.Auth_ErrorArea}>{error} !</div>}
       <div className={styles.Auth_mid_or}>or</div>
       <div className={styles.Auth_SubButton}>
         <button>Login with Google</button>

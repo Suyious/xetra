@@ -1,15 +1,19 @@
 import { useRouter } from "next/router";
 import styles from "./Modal.module.css";
 
-const AuthModal = ({ children }) => {
+const Modal = ({ children }) => {
   const router = useRouter();
   const { auth: remove, ...rest } = router.query;
 
   return (
-    <div className={styles.AuthModal_body}>
+    <div className={styles.Modal_body}>
       <div
         onClick={() =>
-          router.push({ pathname: router.pathname, query: { ...rest } },undefined,{scroll: false})
+          router.push(
+            { pathname: router.pathname, query: { ...rest } },
+            undefined,
+            { scroll: false }
+          )
         }
         className={styles.clickToExit}
       />
@@ -18,4 +22,4 @@ const AuthModal = ({ children }) => {
   );
 };
 
-export default AuthModal;
+export default Modal;

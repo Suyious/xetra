@@ -1,116 +1,116 @@
-.ProductModal_body,.AuthModal_body{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    min-height: 100vh;
-    min-height: calc(var(--vh,1vh) * 100);
-    z-index: 2;
+.ProductModal_body,
+.Modal_body {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+  z-index: 3;
 }
 
-.clickToExit{
+.clickToExit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* height: calc(var(--vh,1vh) * 100); */
+  background: #00000081;
+}
+
+.ProductModal_main,
+.Modal_main {
+  position: absolute;
+  left: 50%;
+  /* bottom: 50%;
+    transform: translate(-50%,50%); */
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  background: #000;
+  border: 1px solid #dddddd;
+}
+
+@media all and (min-width: 1000px) {
+  .ProductModal_main {
+    width: 80em;
+    height: 55em;
+    max-width: 90vw;
+    max-height: 90vh;
+    max-height: calc(var(--vh, 1vh) * 90);
+  }
+
+  .ProductModal_closebutton {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
+    z-index: 2;
+    margin-top: -2.5em;
+    margin-right: -2.5em;
+    cursor: pointer;
+  }
+  .ProductModal_orderoptions {
+    display: none;
+  }
+}
+
+@media all and (max-width: 1000px) {
+  .ProductModal_main {
+    /* overflow: scroll; */
+    position: static;
     width: 100vw;
     height: 100vh;
+    transform: translate(0, 0);
     /* height: calc(var(--vh,1vh) * 100); */
-    background: #00000081;
+  }
+
+  .ProductModal_main > div:nth-child(2) {
+    overflow: scroll;
+  }
+
+  .ProductModal_closebutton {
+    display: none;
+  }
+  .ProductModal_orderoptions {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    padding: 0.5em 1em;
+    background: black;
+    z-index: 2;
+  }
+  .ProductModal_orderoptions button {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    padding: 0.5em 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    cursor: pointer;
+    flex: 1 0 auto;
+  }
+  button.ProductModal_addToCartButton {
+    background: #f3f3f3;
+    color: black;
+  }
+  button.ProductModal_wishListbutton {
+    background: transparent;
+    color: #cdcdcd;
+    border: 2px solid #cdcdcd;
+  }
 }
 
-.ProductModal_main,.AuthModal_main{
-    position: absolute;
-    left: 50%;
-    /* bottom: 50%;
-    transform: translate(-50%,50%); */
-    top: 50%;
-    transform: translate(-50%,-50%);
-    color: #fff;
-    background: #000;
-    border: 1px solid #DDDDDD
-}
-
-
-@media all and (min-width: 1000px){
-    .ProductModal_main{
-        width: 80em;
-        height: 55em;
-        max-width: 90vw;
-        max-height: 90vh;
-        max-height: calc(var(--vh,1vh) * 90);
-    }
-
-    .ProductModal_closebutton{
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 2;
-        margin-top: -2.5em;
-        margin-right: -2.5em;
-        cursor: pointer;
-    }
-    .ProductModal_orderoptions{
-        display: none;
-    }
-    
-}
-
-@media all and (max-width: 1000px){
-    .ProductModal_main{
-        /* overflow: scroll; */
-        position: static;
-        width: 100vw;
-        height: 100vh;
-        transform: translate(0,0);
-        /* height: calc(var(--vh,1vh) * 100); */
-    }
-
-    .ProductModal_main > div:nth-child(2){
-        overflow: scroll;
-    }
-
-    .ProductModal_closebutton{
-        display: none;
-    }
-    .ProductModal_orderoptions{
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        gap: 1em;
-        padding: 0.5em 1em;
-        background: black;
-        z-index: 2;
-    }
-    .ProductModal_orderoptions button{
-        outline: none;
-        border: none;
-        border-radius: 5px;
-        font-size: 1.2em;
-        padding: 0.5em 2em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5em;
-        cursor: pointer ;
-        flex: 1 0 auto;
-    }
-    button.ProductModal_addToCartButton{
-        background: #f3f3f3;
-        color: black;
-    }
-    button.ProductModal_wishListbutton{
-        background: transparent;
-        color: #cdcdcd;
-        border: 2px solid #cdcdcd;
-    }
-}
-
-@media all and (max-width: 600px){
-    .ProductModal_orderoptions button{
-        font-size: 1em;
-        padding: 0.5em 1em;
-    }
+@media all and (max-width: 600px) {
+  .ProductModal_orderoptions button {
+    font-size: 1em;
+    padding: 0.5em 1em;
+  }
 }

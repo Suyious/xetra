@@ -16,8 +16,6 @@ const Collections = () => {
     dispatch(getCollections());
   }, [dispatch]);
 
-  const sizes = [1, 3];
-
   return (
     <div className={styles.Collections}>
       {loading ? (

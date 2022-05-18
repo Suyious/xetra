@@ -9,6 +9,9 @@ import {
   LOAD_USER_SUCCESS,
   LOAD_USER_FAIL,
   CLEAR_ERRORS,
+  LOGOUT_REQUEST,
+  LOGOUT_SUCCESS,
+  LOGOUT_FAIL
 } from "../types/userTypes";
 import axios from "../../utils/axios";
 
@@ -18,7 +21,7 @@ export const loginUser = (email, password) => async (dispatch) => {
       type: LOGIN_REQUEST,
     });
 
-    console.log(email, password);
+    // console.log(email, password);
     const config = {
       headers: { "Content-Type": "application/json", withCredentials: true },
     };
@@ -104,6 +107,17 @@ export const loadUser = () => async (dispatch) => {
         payload: error.message,
       });
     }
+  }
+};
+
+// Logout User
+export const logoutUser = () => async (dispatch) => {
+  try {
+    dispatch({type: LOGOUT_REQUEST})
+    await axios.get(`/api/v1/logout`);
+    dispatch({ type: LOGOUT_SUCCESS });
+  } catch (error) {
+    dispatch({ type: LOGOUT_FAIL, payload: error.response.data.message });
   }
 };
 

@@ -9,6 +9,9 @@ import {
   LOAD_USER_SUCCESS,
   LOAD_USER_FAIL,
   CLEAR_ERRORS,
+  LOGOUT_SUCCESS,
+  LOGOUT_FAIL,
+  LOGOUT_REQUEST
 } from "../types/userTypes";
 
 export const userReducer = (state = { user: [] }, action) => {
@@ -38,6 +41,24 @@ export const userReducer = (state = { user: [] }, action) => {
         loading: false,
         isAuthenticated: false,
         user: null,
+        error: action.payload,
+      };
+    case LOGOUT_REQUEST:
+      return{
+        ...state,
+        loading: true,
+        isAuthenticated: true
+      }
+    case LOGOUT_SUCCESS:
+      return {
+        loading: false,
+        user: null,
+        isAuthenticated: false,
+      };
+    case LOGOUT_FAIL:
+      return {
+        ...state,
+        loading: false,
         error: action.payload,
       };
     case CLEAR_ERRORS:

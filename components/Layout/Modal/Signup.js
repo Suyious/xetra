@@ -20,6 +20,8 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [inputErrors, setInputErrors] = useState({})
+  const [showErrors, setShowErrors] = useState(false);
+
 
   const dispatch = useDispatch();
   const { loading, isAuthenticated, error } = useSelector(
@@ -35,8 +37,10 @@ const Signup = () => {
       credentials.set("name", username);
       credentials.set("email", email);
       credentials.set("password", password);
-      dispatch(registerUser(credentials));
+      dispatch(registerUser(credentials));      
     }
+    setShowErrors(true)
+
   };
 
   return (
@@ -46,7 +50,7 @@ const Signup = () => {
       }
     >
       {!routeCheck && (
-        <div
+        <div      
           onClick={() =>
             router.push(
               { pathname: router.pathname, query: { ...rest } },
@@ -125,6 +129,7 @@ const Signup = () => {
           {loading ? "loading..." : "signup"}
         </button>
       </div>
+      {!loading && !isAuthenticated && showErrors && <div className={styles.Auth_ErrorArea}>{error} !</div>}
       <div className={styles.Auth_mid_or}>or</div>
       <div className={styles.Auth_SubButton}>
         <button>Sign up with Google</button>

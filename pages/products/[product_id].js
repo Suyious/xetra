@@ -1,22 +1,18 @@
-import {useRouter} from "next/router"
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
 import ProductMain from "../../components/product/ProductMain";
-import styles from "../../components/product/ProductMain.module.css"
-import { getProductDetails } from "../../redux/actions/productAction";
+import styles from "../../components/product/ProductMain.module.css";
 
 const ProductOne = () => {
+  const router = useRouter();
+  const { product_id } = router.query;
 
-    const router = useRouter();
-    const {product_id} = router.query
+  return (
+    <div className={styles.ProductPage_body}>
+      <div className={styles.ProductPage_wrapper}>
+        <ProductMain product_id={product_id} />
+      </div>
+    </div>
+  );
+};
 
-    return (
-        <div className={styles.ProductPage_body}>
-            <div className={styles.ProductPage_wrapper}>
-                <ProductMain product_id={product_id}/>
-            </div>
-        </div>
-    )
-}
-
-export default ProductOne
+export default ProductOne;
