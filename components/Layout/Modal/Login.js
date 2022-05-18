@@ -82,7 +82,7 @@ const Login = () => {
         <button>Login with Google</button>
       </div>
       <div className={styles.Auth_bottom_label}>
-        Don't have an account?{" "}
+        Don{"'"}t have an account?{" "}
         <Link
           href={href}
           as={{ pathname: "/user/signup" }}
