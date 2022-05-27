@@ -13,7 +13,7 @@ const CollectionCard = ({size, src}) => {
               <div className={styles.Collection_card_image_overlay} />
           </div></a>
         </Link>
-        <div className={styles.CollectionCard_Text}>
+        {/* <div className={styles.CollectionCard_Text}>
           <Link href="/">
             <a><div className={styles.CollectionCard_Title}>Winter Collections</div></a>
           </Link>
@@ -21,7 +21,7 @@ const CollectionCard = ({size, src}) => {
             <div className={styles.CollectionCard_bottom_left}>70% off</div>
             <Link href="/"><a className={styles.CollectionCard_bottom_button}>Explore</a></Link>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

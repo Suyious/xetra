@@ -215,6 +215,7 @@ const Navigation = () => {
                     query: { ...router.query, dropdown: "true" },
                   }}
                   as={{ pathname: "/" }}
+                  scroll={false}
                 >
                   <a className={styles.Nav_account_options}>
                     <span>S</span>

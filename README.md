@@ -9,7 +9,7 @@ Tech Stack  | | |
 Nextjs (React) | <img height="15" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" /> |  FrontEnd
 Expressjs | <img height="15" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" /> |  Server
 Nodejs | <img height="15" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" /> |  Backend
-MongoDB |<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" /> | Database
+MongoDB |<img height="15" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" /> | Database
 HTML | <img height="15" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" /> |  Markup
 CSS  | <img height="15" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" /> |  Styling
           

@@ -10,8 +10,8 @@
 
 .CollectionCard_main{
     margin: 1em;
-    border: 0.97px solid #FFFFFF;
-    border-radius: 25px;
+    /* border: 0.97px solid #FFFFFF; */
+    border-radius: 5px;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -27,7 +27,7 @@
   height: 100%;
   position: absolute;
   top: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 17.61%, #000000 98.45%);
+  /* background: linear-gradient(180deg, rgba(0, 0, 0, 0) 17.61%, #000000 98.45%); */
 }
 
 .CollectionCard_Text{
