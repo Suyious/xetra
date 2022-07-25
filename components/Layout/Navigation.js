@@ -50,7 +50,7 @@ const Navigation = () => {
         <div className={styles.wrapper}>
           <div className={styles.Nav_left}>
             <div className={styles.Nav_menu}>
-              <svg
+              {/* <svg
                 width="28"
                 height="28"
                 viewBox="0 0 37 37"
@@ -81,7 +81,7 @@ const Navigation = () => {
                   rx="1.10818"
                   fill="white"
                 />
-              </svg>
+              </svg> */}
             </div>
             <Link href="/">
               <a title="Xetra - Home" className={styles.Nav_logo}>
