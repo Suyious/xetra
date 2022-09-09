@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Collections from '../components/Collections'
 import Header from '../components/Header'
-import ScrollTabs from '../components/ScrollTabs'
+// import ScrollTabs from '../components/ScrollTabs'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header/>
-      <ScrollTabs/>
+      {/* <ScrollTabs/> */}
       <Collections/>
     </div>
   )

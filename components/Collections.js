@@ -1,9 +1,7 @@
 import styles from "../styles/Collections.module.css";
-import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getCollections } from "../redux/actions/collectionAction";
-import Image from "next/image";
 import CollectionCard from "./product/CollectionCard";
 
 const Collections = () => {
@@ -24,30 +22,10 @@ const Collections = () => {
         <div>Error Occured: {error.message}</div>
       ) : (
         <div className={styles.Collections_wrapper}>
-          <div>
-            <CollectionCard src="/sample002.jpg" size={1} />
-          </div>
-          <div>
-            <CollectionCard src="/sample001.jpg" size={3} />
-          </div>
-          <div>
-            <CollectionCard src="/sample001.jpg" size={3} />
-          </div>
-          <div>
-            <CollectionCard src="/sample002.jpg" size={1} />
-          </div>
-          <div>
-            <CollectionCard src="/sample002.jpg" size={1} />
-          </div>
-          <div>
-            <CollectionCard src="/sample002.jpg" size={1} />
-          </div>
-          <div>
-            <CollectionCard src="/sample002.jpg" size={1} />
-          </div>
-          <div>
-            <CollectionCard src="/sample002.jpg" size={1} />
-          </div>
+          <CollectionCard src="/sample001.jpg" size={3} />
+          <CollectionCard src="/sample001.jpg" size={2} />
+          <CollectionCard src="/sample001.jpg" size={1} />
+          <CollectionCard src="/sample001.jpg" size={4} />
         </div>
       )}
     </div>

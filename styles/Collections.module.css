@@ -9,17 +9,37 @@
 }
 
 .CollectionCard_main{
-    margin: 1em;
+    margin: 0.5em auto;
     /* border: 0.97px solid #FFFFFF; */
-    border-radius: 5px;
     overflow: hidden;
     position: relative;
     display: flex;
 }
 
+.CollectionCard_container {
+	display: flex;
+	justify-content: space-between;
+	gap: 1em;
+	flex-wrap: wrap;
+}
+
 .CollectionsCard_image_container{
   position: relative;
   display: flex;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.CollectionCard_container_size4 > a {
+	width: calc(25% - 0.8em);
+}
+
+.CollectionCard_container_size3 > a {
+	width: calc(33.3333% - 0.7em);
+}
+
+.CollectionCard_container_size2 > a {
+	width: calc(50% - 0.5em);
 }
 
 .Collection_card_image_overlay{
@@ -28,39 +48,4 @@
   position: absolute;
   top: 0;
   /* background: linear-gradient(180deg, rgba(0, 0, 0, 0) 17.61%, #000000 98.45%); */
-}
-
-.CollectionCard_Text{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 1.5em;
-  font: Roboto;
-}
-
-.CollectionCard_Title{
-  font-weight: 300;
-  color: #DADADA;
-  font-size: 2.8em;
-  margin-bottom: 0.5em;
-}
-
-.CollectionCard_bottom{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.CollectionCard_bottom_left{
-  font-size: 1.5em;
-  color: #DADADA;
-}
-
-.CollectionCard_bottom_button{
-  padding: 0.5em 2em;
-  background: #B0ADAD8F;
-  border-radius: 6px;
-  font-weight: 500;
-  color: #F1F1F1;
 }
