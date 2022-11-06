@@ -1,0 +1,31 @@
+.Nav_searchbar{
+  background: rgba(111, 111, 111, 0.36);
+  padding: 0.4em 1.5em;
+  border-radius: 9px;
+  margin: 0 1em;
+  display: flex;
+  align-items:center;
+  border: 2px solid #A5A5A555
+}
+
+.Nav_searchinput{
+  background: none;
+  outline: none;
+  border: none;
+  width: 32em;
+  max-width: 75vw;
+  color: #E4E4E4;
+  font-family: Montserrat, sans-serif;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.Nav_searchbutton{
+  outline: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

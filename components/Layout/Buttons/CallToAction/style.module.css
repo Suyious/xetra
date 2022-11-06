@@ -1,0 +1,18 @@
+.calltoaction_main {
+	outline: none;
+	border: none;
+	background: #fff;
+	font-family: Montserrat, sans-serif;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	border-radius: 7px;
+	cursor: pointer;
+	transition: border 100ms ease;
+}
+
+.calltoaction_main:hover {
+	border: 1px solid #fff;
+	border-radius: 8px;
+}

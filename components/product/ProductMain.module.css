@@ -1,22 +1,3 @@
-.ProductPage_body{
-    min-height: 100vh;
-    min-height: calc(var(--vh,1vh) * 100);
-}
-
-.ProductPage_wrapper{
-    margin: 0 auto;
-    padding-top: 5em;
-    width: 80em;
-    max-width: 90vw;
-    background: #000;
-}
-
-@media all and (min-width: 781px){
-    .ProductPage_wrapper{
-        height: 55em;
-    }
-}
-
 .ProductMain_body{
     display: flex;
     height: 100%;

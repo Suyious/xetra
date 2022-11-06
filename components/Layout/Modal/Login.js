@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { loginUser } from "../../../redux/actions/userAction";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Close from "../../../assets/icons/close.svg"
 
 const Login = () => {
   const router = useRouter();
@@ -36,33 +37,7 @@ const Login = () => {
   return (
     <form className={routeCheck?styles.Auth_container:styles.Auth_modal_container}>
       {!routeCheck && <div onClick={()=>router.push({pathname: router.pathname, query: {...rest}},undefined,{scroll: false})} className={styles.Auth_modal_close_button_container}>
-        <svg
-          width="25"
-          height="25"
-          viewBox="0 0 40 40"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <line
-            x1="10.8284"
-            y1="9"
-            x2="29.2132"
-            y2="27.3848"
-            stroke="#aea6a6"
-            strokeWidth="4"
-            strokeLinecap="round"
-          />
-          <line
-            x1="2"
-            y1="-2"
-            x2="28"
-            y2="-2"
-            transform="matrix(-0.707107 0.707107 0.707107 0.707107 32.2148 9)"
-            stroke="#aea6a6"
-            strokeWidth="4"
-            strokeLinecap="round"
-          />
-        </svg>
+      <Close/>
       </div>}
       <div className={styles.Auth_top_label}>
         Your one-stop for casuals is one click away

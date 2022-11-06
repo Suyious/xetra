@@ -1,4 +1,4 @@
-import styles from "../../styles/Collections.module.css";
+import styles from "./style.module.css";
 import Head from "next/head"
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";

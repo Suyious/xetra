@@ -1,13 +1,3 @@
-.Collections_wrapper {
-  max-width: 95vw;
-  margin: 0 auto;
-  margin-top: 2em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
 .CollectionCard_main{
     margin: 0.5em auto;
     /* border: 0.97px solid #FFFFFF; */

@@ -1,0 +1,98 @@
+.product_create_main {
+    padding-top: 4em;
+    min-height: 100vh;
+	max-width: 90vw;
+	margin-inline: auto;
+	display: flex;
+}
+
+.product_create_wrapper {
+	display: flex;
+	width: 100%;
+	margin: 2em;
+	background: #0F0F0F9C;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.product_create_left,
+.product_create_right {
+	width: 50%;
+}
+
+.product_create_left {
+	background: #232323;
+	position: relative;
+}
+
+.product_create_absolute {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding: 2em;
+}
+
+.product_create_right {
+	padding: 4em;
+}
+
+.product_create_form {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	height: 100%;
+}
+
+.product_create_form_section {
+	display: flex;
+	flex-direction: column;
+}
+
+.product_create_form_section[id="product_section_description"] {
+	flex: 1;
+}
+
+.product_create_form_label {
+	font-size: 0.9em;
+	margin-block: 0.5em;
+	color: #B8B8B8;
+}
+
+.product_create_form_input {
+	outline: none;
+	border: none;
+	background: transparent;
+	color: #DADADA;
+}
+
+.product_create_form_input[name="product_title"] {
+	font-size: 2.4em;
+}
+
+.product_create_form_input[name="product_price"] {
+	font-size: 4em;
+	margin-inline: 0.2em;
+	cursor: text;
+}
+
+.product_create_form_input_price_wrapper span {
+	font-size: 1.9em;
+	color: #DADADA;
+}
+
+.product_create_form_input_price_wrapper span:last-child {
+	color: #505050;
+}
+
+.product_create_form_input[name="product_details"] {
+	font-family: Roboto, sans-serif;
+	font-size: 1em;
+	background: #1E1E1E4D;
+	resize: none;
+	height: 100%;
+	padding: 1.5em;
+}
+
+.product_create_form_input_price_wrapper {
+	display: flex;
+}

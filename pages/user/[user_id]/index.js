@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import styles from "./User.module.css";
+import styles from "./style.module.css";
 
 const User = () => {
 

@@ -1,8 +1,8 @@
-import styles from "../styles/Collections.module.css";
+import styles from "./style.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getCollections } from "../redux/actions/collectionAction";
-import CollectionCard from "./product/CollectionCard";
+import { getCollections } from "../../redux/actions/collectionAction";
+import CollectionCard from "../product/CollectionCard";
 
 const Collections = () => {
   const dispatch = useDispatch();

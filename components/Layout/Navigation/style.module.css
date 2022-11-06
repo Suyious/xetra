@@ -4,7 +4,8 @@
   width: 100vw;
   z-index: 1;
   overflow: hidden;
-  height: 4em;
+  height: 4.5em;
+  font-family: Montserrat, sans-serif;
 }
 
 .wrapper{
@@ -19,27 +20,24 @@
 .Nav_left,
 .Nav_searchbar,
 .Nav_right,
-.Nav_centre,
 .Nav_menu,
-.Nav_searchbutton,
 .Nav_right_trending{
   display: flex;
   align-items:center;
 }
 
-/* ------Search Bar--------- */
-
-.Nav_centre{
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+.Nav_left {
+	gap: 1em;
 }
 
-.Nav_searchbutton{
-  outline: none;
-  background: transparent;
-  border: none;
-  cursor: pointer;
+.Nav_right {
+	font-weight: 600;
+}
+
+.Nav_right_trending {
+	display: flex;
+	gap: 0.5em;
+	font-size: 0.9em;
 }
 
 .Nav_menu,
@@ -51,13 +49,21 @@
   display: flex;
 }
 
+/* ------Search Bar--------- */
+
+.Nav_searchbutton{
+  outline: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .Nav_searchbar{
   background: #6f6f6f5c;
   padding: 0.5em 1em 0.5em 1.5em;
   border-radius: 9px;
   margin: 0 1em;
 }
-
 
 .Nav_searchinput{
   background: none;
@@ -76,21 +82,9 @@
   font-weight: 300;
 }
 
-@media all and (max-width: 480px){
-  .Nav_centre{
-    top: 4.5em;
-  }
-} 
-
 .Nav_right_button{
   padding: 0.5em 3em;
-  font-family: Montserrat;
   font-size: 0.9em;
-  font-weight: 600;
-  border: none;
-  outline: none;
-  background: #fff;
-  border-radius: 35px;
   cursor: pointer;
 }
 

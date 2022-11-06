@@ -39,7 +39,7 @@ const ShopNav = ({ name, productCount,resultsInQuery, loading }) => {
           </a>
         </Link>
         {router.pathname === "/products" && (
-          <Link href="/products">
+          <Link href="/product">
             <a className={styles.ShopNav_link}>
               <svg
                 width="37"

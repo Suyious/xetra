@@ -1,12 +1,9 @@
 import Head from 'next/head'
-import Collections from '../components/Collections'
-import Header from '../components/Header'
-// import ScrollTabs from '../components/ScrollTabs'
-import styles from '../styles/Home.module.css'
+import Header from '../components/Layout/Header'
 
 export default function Home() {
   return (
-    <div className={styles.Home_body}>
+    <div>
       <Head>
         <title>Xetra | Your Fashion One Stop</title>
         <meta name="description" content="Shop for the best fashion deal. Choose from several categories. Have what you deserve. At Xetra" />
@@ -23,9 +20,8 @@ export default function Home() {
         <meta name="twitter:site" content="@suyashk"/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <Header/>
-      {/* <ScrollTabs/> */}
-      <Collections/>
     </div>
   )
 }

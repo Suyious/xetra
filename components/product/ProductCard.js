@@ -1,4 +1,4 @@
-import styles from "../../styles/products.module.css";
+import styles from "../../pages/product/style.module.css";
 import Image from "next/image";
 import Rating from "./Rating";
 import { useState } from "react";

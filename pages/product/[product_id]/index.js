@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
-import ProductMain from "../../components/product/ProductMain";
-import styles from "../../components/product/ProductMain.module.css";
+import ProductMain from "../../../components/product/ProductMain";
+import styles from "./style.module.css";
 
 const ProductOne = () => {
   const router = useRouter();
