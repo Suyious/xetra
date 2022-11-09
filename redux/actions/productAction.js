@@ -67,7 +67,7 @@ export const createProduct = (body) => async(dispatch) => {
 
     let link = `/api/v1/admin/product/new`
     const config = {
-      headers: { "Content-Type": "application/json", withCredentials: true },
+      headers: { "Content-Type": "multipart/form-data", withCredentials: true },
     };
 
     const { data } = await axios.post(link, body, config);

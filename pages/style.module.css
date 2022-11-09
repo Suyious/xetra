@@ -1,0 +1,14 @@
+.Home_section {
+	max-width: 90vw;
+	margin: 0 auto;
+}
+
+.Home_section > div {
+	margin-top: 1em;
+}
+
+.centerInside {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

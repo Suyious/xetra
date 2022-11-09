@@ -7,7 +7,7 @@ import Price from "./Price";
 import { useRouter } from "next/router";
 
 const ProductCard = ({ product }) => {
-  const { name, price, ratings, description } = product;
+  const { name, price, ratings, description, images } = product;
   const [liked, setLiked] = useState(false);
   
   const {pathname, query} = useRouter();
@@ -21,9 +21,9 @@ const ProductCard = ({ product }) => {
   return (
     <div className={styles.Product_card}>
       <div className={styles.Product_card_container}>
-        <Link key={product._id} href={`${pathname}?${prefix}product_id=${product._id}`} as={`products/${product._id}`} scroll={false}>
+        <Link key={product._id} href={`${pathname}?${prefix}product_id=${product._id}`} as={`product/${product._id}`} scroll={false}>
           <a><div className={styles.Product_card_image_container}>
-            <Image src="/ProductImage.jpg" objectFit="cover" width="273z" height="377" />
+            <Image src={images[0].url} objectFit="cover" width="273" height="377" />
             <div className={styles.Product_card_image_overlay} />
           </div></a>
         </Link>

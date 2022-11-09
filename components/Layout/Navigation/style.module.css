@@ -13,73 +13,37 @@
   margin: 0 auto;
   padding: 1em 0;
   display: flex;
+  gap: 1em;
   justify-content: space-between;
   align-items: center;
 }
 
 .Nav_left,
-.Nav_searchbar,
-.Nav_right,
-.Nav_menu,
-.Nav_right_trending{
+.Nav_right {
   display: flex;
   align-items:center;
 }
 
 .Nav_left {
 	gap: 1em;
+	flex: 1;
 }
 
 .Nav_right {
 	font-weight: 600;
 }
 
-.Nav_right_trending {
+.Nav_right_link {
 	display: flex;
+	align-items:center;
 	gap: 0.5em;
 	font-size: 0.9em;
+	cursor: pointer;
 }
 
-.Nav_menu,
-.Nav_right_trending,
-.Nav_wishlist_button,
-.Nav_cart_button{
-  margin-right: 1.5em;
-  cursor: pointer;
-  display: flex;
-}
-
-/* ------Search Bar--------- */
-
-.Nav_searchbutton{
-  outline: none;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.Nav_searchbar{
-  background: #6f6f6f5c;
-  padding: 0.5em 1em 0.5em 1.5em;
-  border-radius: 9px;
-  margin: 0 1em;
-}
-
-.Nav_searchinput{
-  background: none;
-  outline: none;
-  border: none;
-  width: 32em;
-  max-width: 75vw;
-  color: #ffffff;
-  font-family: Montserrat, sans-serif;
-  font-size: 0.9em;
-  font-weight: 400;
-}
-
-.Nav_searchinput::-webkit-input-placeholder{
-  color: #d4d4d4;
-  font-weight: 300;
+.Nav_searchbar {
+	flex: 1;
+	max-width: 32em;
 }
 
 .Nav_right_button{
@@ -90,6 +54,8 @@
 
 .Nav_authenticated_buttons{
   display: flex;
+  gap: 2.5em;
+  margin-left: 2.5em;
   align-items: center;
 }
 
@@ -109,4 +75,16 @@
   justify-content: center;
   border-radius: 50px;
   color: #000;
+}
+
+@media all and (max-width: 1280px) {
+	.Nav_right_link span {
+		display: none;
+	}
+}
+
+@media all and (max-width: 739px) {
+	.Nav_searchbar {
+		display: none;
+	}
 }

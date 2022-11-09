@@ -17,9 +17,9 @@ const Footer = () => {
                         <div key={i} className={styles.Footer_section}>
                           <div className={styles.Footer_section_title}>{ key_i }</div>
                           {data[key_i].map((link, i) => (
-                            <a href="#" key={i} className={styles.Footer_section_link}>{link}</a>
-
-                          ))}
+                            <a href="#" key={i} className={styles.Footer_section_link}>
+                              {link}
+                            </a>))}
                         </div>
                     ))}
                   </div>
@@ -32,6 +32,7 @@ const Footer = () => {
                   </div>
 
               </div>
+
               <div className={styles.Footer_bottom}>
                   <div className={styles.Footer_bottom_left}>
                       <div className={styles.Footer_bottom_left_logo}>Xetra</div>

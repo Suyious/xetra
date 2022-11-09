@@ -1,6 +1,6 @@
 import styles from "./style.module.css"
 
-const CallToAction = ({children, padding="0.5em 1em", fontSize="0.9em", disabled = false, onClick=() => {}}) => {
+const SecondayCTA = ({children, padding="0.5em 1em", fontSize="0.9em", disabled = false, onClick=() => {}}) => {
 
   const button_styles = {
     "padding": padding,
@@ -14,4 +14,4 @@ const CallToAction = ({children, padding="0.5em 1em", fontSize="0.9em", disabled
   )
 }
 
-export default CallToAction
+export default SecondayCTA

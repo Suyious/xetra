@@ -14,13 +14,13 @@ import Cart from "../../../assets/icons/cart.svg"
 import CallToAction from "../Buttons/CallToAction";
 import SearchBar from "../Inputs/SearchBar";
 
-const Navigation = () => {
+const Navigation = ({ offset = 100 }) => {
   const [keyword, setKeyword] = useState("");
   const router = useRouter();
   const { auth, dropdown } = router.query;
   const [navColor, setNavColor] = useState("transparent");
 
-  const { loading, isAuthenticated } = useSelector(
+  const { loading, isAuthenticated, user} = useSelector(
     (state) => state.user
   );
 
@@ -37,7 +37,7 @@ const Navigation = () => {
   }, [router.pathname]);
 
   const changeNavbarColor = () => {
-    if (window.scrollY >= 100) {
+    if (window.scrollY >= offset) {
       setNavColor("#000");
     } else {
       setNavColor("transparent");
@@ -54,15 +54,16 @@ const Navigation = () => {
       <nav style={{ background: navColor }} className={styles.Navigation}>
         <div className={styles.wrapper}>
           <div className={styles.Nav_left}>
-            {/* <div className={styles.Nav_menu}><Hamburger/></div> */}
             <Link href="/"><a title="Xetra - Home" className={styles.Nav_logo}>Xetra.</a></Link>
-            <SearchBar onSubmit={searchHandler} placeholder="Search" value={keyword} onChange={(e) => setKeyword(e.target.value)}/>
+            <div className={styles.Nav_searchbar}>
+              <SearchBar onSubmit={searchHandler} placeholder="Search" value={keyword} onChange={(e) => setKeyword(e.target.value)}/>
+            </div>
           </div>
 
           <div className={styles.Nav_right}>
             <Link href="/product">
-              <a title="Trending" className={styles.Nav_right_trending}>
-                <Trending/> Trending
+              <a title="Trending" className={styles.Nav_right_link + " " + styles.Nav_right_trending}>
+                <Trending/> <span>Trending</span>
               </a>
             </Link>
             {loading ? "Wait..." : !isAuthenticated ? (
@@ -77,24 +78,26 @@ const Navigation = () => {
                   pathname: router.pathname,
                   query: { ...router.query, auth: "signup" },
                 }} as={{ pathname: "/user/signup" }} scroll={false}>
-                <a><CallToAction className={styles.Nav_right_button} padding="0.6em 1.5em">
+                <a><CallToAction className={styles.Nav_right_link + " " + styles.Nav_right_button} padding="0.6em 1.5em">
                   Sign Up
                 </CallToAction> </a>
               </Link> </>
             ) : (
               <div className={styles.Nav_authenticated_buttons}>
                 <Link href="/wishlist">
-                  <a title="WishList" className={styles.Nav_wishlist_button}> <WishList/> </a>
+                  <a title="WishList" className={styles.Nav_right_link + " " + styles.Nav_wishlist_button}>
+                    <WishList/> <span>WishList</span>
+                  </a>
                 </Link>
                 <Link href="/cart">
-                  <a title="Cart" className={styles.Nav_cart_button}> <Cart/> </a>
+                  <a title="Cart" className={styles.Nav_right_link + " " + styles.Nav_cart_button}> <Cart/> <span>Cart</span></a>
                 </Link>
                 <Link href={{
                     pathname: router.pathname,
                     query: { ...router.query, dropdown: "true" },
                   }} as={{ pathname: "/" }} scroll={false} >
                   <a className={styles.Nav_account_options}>
-                    <span>S</span>
+                    <span>{user.name.substr(0, 1)}</span>
                   </a>
                 </Link>
               </div>

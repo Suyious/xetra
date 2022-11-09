@@ -1,7 +1,16 @@
 import Head from 'next/head'
+import styles from "./style.module.css"
+import RowsColumnGrid from '../components/Layout/Grids/RowsColumn'
 import Header from '../components/Layout/Header'
+import background from "../public/headerBackground.jpg"
+import Tabs from '../components/Layout/Filters/Tabs'
+import {useState} from 'react'
+import SecondayCTA from '../components/Layout/Buttons/Secondary'
 
 export default function Home() {
+
+  const [tabSelected, setTabSelected] = useState(0);
+
   return (
     <div>
       <Head>
@@ -21,7 +30,24 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header/>
+      <Header background={background}>
+
+      </Header>
+
+      <div className={styles.Home_section}>
+        <Tabs selected={tabSelected} setSelected={setTabSelected}>
+          { ["Men", "Women", "Children", "Otters"] }
+        </Tabs>
+        <RowsColumnGrid gap={"1em 1.5em"}>
+          { [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num, i) => (
+              <div key={i} style={{ background: "#fff1", height: "15em" }}>{num}</div>
+          )) }
+        </RowsColumnGrid>
+        <div className={styles.centerInside}>
+          <SecondayCTA padding={"0.3em 5em"}>See more</SecondayCTA>
+        </div>
+      </div>
+
     </div>
   )
 }

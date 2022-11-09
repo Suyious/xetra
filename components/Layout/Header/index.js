@@ -1,16 +1,18 @@
 import Image from "next/image"
-import Background from "../../../public/Background.jpg"
 import styles from "./style.module.css";
 
-const Header = () => {
+const Header = ({children, background}) => {
 
   return (
     <div className={styles.Header}>
       <div className={styles.Header_Background}>
-        <Image className={styles.Header_Background_image} placeholder="blur" layout="fill" objectFit="cover" src={Background} alt="" />
+        <Image className={styles.Header_Background_image} placeholder="blur" layout="fill" objectFit="cover" src={background} alt="" />
         <div className={styles.Header_Background_overlay}/>   
+        <div className={styles.Header_gradient}/>
       </div>
-      <div className={styles.Header_gradient}/>
+      <div className={styles.Header_content}>
+        { children }
+      </div>
     </div>
   );
 };

@@ -1,8 +1,10 @@
 import {useState} from "react"
 import styles from "./style.module.css"
+import Image from "next/image"
 import Head from "next/head"
 import ImageIcon from "../../../assets/icons/image.svg"
 import CallToAction from "../../../components/Layout/Buttons/CallToAction"
+import ImageInput from "../../../components/Layout/Inputs/ImageInput"
 import ContentEditable from "../../../components/Layout/Inputs/ContentEditable"
 import {useDispatch, useSelector} from "react-redux"
 import {createProduct} from "../../../redux/actions/productAction"
@@ -12,20 +14,45 @@ const create = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
+  const [images, setImages] = useState([]);
 
   const dispatch = useDispatch();
   const {loading, product, error} = useSelector((state) => state.productCreate);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(createProduct({
-      name, price, description, 
-      category: "test",
-      images: {
-        public_id: "test",
-        url: "test"
+
+    const publish = new FormData();
+    publish.set('name', name);
+    publish.set('price', price);
+    publish.set('description', description);
+    publish.set('category', "test");
+    images.forEach((image) => {
+      publish.append("images", image);
+    });
+    
+    for (const key of publish.keys()) {
+      console.log(key, " : ", publish.get(key));
+    }
+    dispatch(createProduct( publish ));
+  }
+
+  const imageHandler = (e) => {
+    // console.log(e.target.files);
+    // setImages((p_images) => [...p_images, ...e.target.files]);
+
+    const files = Array.from(e.target.files);
+    files.forEach((file) => {
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        if(reader.readyState === 2) {
+          setImages((p_images) => [...p_images, reader.result]);
+        }
       }
-    }));
+
+      reader.readAsDataURL(file);
+    })
   }
 
   return(
@@ -46,15 +73,20 @@ const create = () => {
       </Head>
       <div className={styles.product_create_wrapper}>
         <div className={styles.product_create_left}>
-          <div className={styles.product_create_images}></div>
+          <div className={styles.product_create_images}>{images.map((image, index) => (
+              <div className={styles.product_create_image} key={index}>
+                {/*<Image src={URL.createObjectURL(image)} layout="fill" objectFit="contain"/> */}
+                <Image src={image} layout="fill" objectFit="contain"/>
+              </div>
+          ))}</div>
           <div className={styles.product_create_absolute}>
-            <CallToAction>
-              <ImageIcon/>
-            Add Image(s)</CallToAction>
+            <ImageInput name="images" onChange={imageHandler}>
+              <ImageIcon/> Add Image(s)
+            </ImageInput>
           </div>
         </div>
         <div className={styles.product_create_right}>
-          <form className={styles.product_create_form}>
+          <form encType="multipart/form-data" className={styles.product_create_form}>
 
             <div className={styles.product_create_form_section}>
               <label className={styles.product_create_form_label} htmlFor="product_title">Product Title</label>
@@ -81,7 +113,7 @@ const create = () => {
             
             <div className={styles.product_create_form_section}>
               Errors: {error?.message}<br/>
-              Product: {product._id && `Published: ${ product._id }`}
+              Product: {product && product._id && `Published: ${ product._id }`}
             </div>
           </form>
         </div>

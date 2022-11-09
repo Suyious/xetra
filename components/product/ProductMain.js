@@ -12,16 +12,17 @@ const ProductMain = ({ product_id }) => {
   const sizes = ["S", "M", "L", "XL", "XXL"];
 
   const dispatch = useDispatch();
-  const {loading, product: {name, description, ratings, price} = {}} = useSelector((state) => state.productDetails);
+  const { loading, product, error } = useSelector((state) => state.productDetails);
+
   useEffect(()=>{
       dispatch(getProductDetails(product_id));
-  },[dispatch, product_id])
+  },[])
 
   return (
     loading? <ProductMainSkeleton/>
-    :<div className={styles.ProductMain_body}>
+    : error ? "Error!" : <div className={styles.ProductMain_body}>
       <div className={styles.ProductMain_left}>
-        <Image src="/ProductImageBig.jpg" layout="fill" objectFit="cover" />
+        {product.images && <Image src={ product.images[0].url } layout="fill" objectFit="cover" />}
       </div>
       <div className={styles.ProductMain_right}>
         <div className={styles.ProductMain_right_title}>
@@ -29,15 +30,15 @@ const ProductMain = ({ product_id }) => {
             Collection/Aesthetics
           </div>
           <div className={styles.ProductMain_right_maintitle}>
-            {name}
+            {product.name}
           </div>
         </div>
         <div className={styles.ProductMain_right_ratings}>
-          <Rating rating={ratings} size={1.3} />
-          <span>Rated {ratings}</span>
+          <Rating rating={product.ratings} size={1.3} />
+          <span>Rated {product.ratings}</span>
         </div>
         <div className={styles.ProductMain_right_price}>
-          <Price price={price} size={1.5} />
+          <Price price={product.price} size={1.5} />
           <span>Inclusive of all taxes</span>
         </div>
         <div className={styles.ProductMain_right_product_variables}>
@@ -112,7 +113,7 @@ const ProductMain = ({ product_id }) => {
             Product Details
           </span>
           <div className={styles.ProductMain_right_product_detail_description}>
-            <p>{description}</p>
+            <p>{product.description}</p>
           </div>
         </div>
         <div className={styles.ProductMain_right_product_reviews}></div>

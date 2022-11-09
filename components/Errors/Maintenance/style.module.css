@@ -1,0 +1,15 @@
+.Maintenance_main {
+	background: linear-gradient(0deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.4)), url(../../../public/ComingSoon.jpg);
+	background-position: center;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Maintenance_message {
+	font-size: 10em;
+	font-weight: 800;
+	letter-spacing: -15px;
+	font-family: Montserrat, sans-serif;
+}

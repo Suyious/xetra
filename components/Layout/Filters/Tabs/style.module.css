@@ -1,0 +1,9 @@
+.Tabs_main {
+	display: flex;
+}
+
+.Tabs_unselected {
+	font-family: Montserrat, sans-serif;
+	font-weight: 600;
+	cursor: pointer;
+}
