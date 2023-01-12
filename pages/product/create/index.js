@@ -9,7 +9,7 @@ import ContentEditable from "../../../components/Layout/Inputs/ContentEditable"
 import {useDispatch, useSelector} from "react-redux"
 import {createProduct} from "../../../redux/actions/productAction"
 
-const create = () => {
+const ProductCreate = () => {
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -121,4 +121,4 @@ const create = () => {
     </div>
   )
 }
-export default create
+export default ProductCreate

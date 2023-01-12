@@ -1,6 +1,6 @@
 import styles from "./style.module.css";
 import Head from "next/head";
-import Shop from "../../components/shop";
+import Shop from "../../components/Shop";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../../redux/actions/productAction";
