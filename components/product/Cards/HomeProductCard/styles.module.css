@@ -1,0 +1,22 @@
+.HomeProductCard_main {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.HomeProductCard_image::after {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 100%;
+	background: #0004;
+}
+
+.HomeProductCard_absolute {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 1em 1.5em;
+}
+
+

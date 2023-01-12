@@ -13,8 +13,9 @@
 
 .Footer_wrapper{
     display: flex;
-    padding: 2em;
+    padding: 2em 0;
     width: 100%;
+	max-width: 90vw;
     margin: 0 auto;
     margin-bottom: 8em;
 }

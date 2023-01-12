@@ -6,6 +6,8 @@ import background from "../public/headerBackground.jpg"
 import Tabs from '../components/Layout/Filters/Tabs'
 import {useState} from 'react'
 import SecondayCTA from '../components/Layout/Buttons/Secondary'
+import product from '../assets/data/products'
+import HomeProductCard from '../components/product/Cards/HomeProductCard'
 
 export default function Home() {
 
@@ -38,9 +40,11 @@ export default function Home() {
         <Tabs selected={tabSelected} setSelected={setTabSelected}>
           { ["Men", "Women", "Children", "Otters"] }
         </Tabs>
-        <RowsColumnGrid gap={"1em 1.5em"}>
-          { [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num, i) => (
-              <div key={i} style={{ background: "#fff1", height: "15em" }}>{num}</div>
+        <RowsColumnGrid>
+          { product.map((product, i) => (
+              <div key={i} style={{ background: "#fff1", height: "15em" }}>
+                <HomeProductCard name={product.name} rating={product.rating} image={product.url}/>
+              </div>
           )) }
         </RowsColumnGrid>
         <div className={styles.centerInside}>
