@@ -33,7 +33,12 @@ export default function Home() {
       </Head>
 
       <Header background={background}>
-
+        <div className={styles.Welcome_main}>
+          <div className={styles.Welcome_box}>
+            <h1>Welcome to <span>Xetra</span></h1>
+            <p>This is <span>not</span> a real life E-commerce site.</p>
+          </div>
+        </div>
       </Header>
 
       <div className={styles.Home_section}>
