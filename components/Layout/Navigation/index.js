@@ -55,9 +55,9 @@ const Navigation = ({ offset = 100 }) => {
         <div className={styles.wrapper}>
           <div className={styles.Nav_left}>
             <Link href="/"><a title="Xetra - Home" className={styles.Nav_logo}>Xetra.</a></Link>
-            <div className={styles.Nav_searchbar}>
+            {router.pathname !== "/" && <div className={styles.Nav_searchbar}>
               <SearchBar onSubmit={searchHandler} placeholder="Search" value={keyword} onChange={(e) => setKeyword(e.target.value)}/>
-            </div>
+            </div>}
           </div>
 
           <div className={styles.Nav_right}>

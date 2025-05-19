@@ -1,17 +1,29 @@
 import Head from 'next/head'
 import styles from "./style.module.css"
-import RowsColumnGrid from '../components/Layout/Grids/RowsColumn'
+// import RowsColumnGrid from '../components/Layout/Grids/RowsColumn'
 import Header from '../components/Layout/Header'
 import background from "../public/headerBackground.jpg"
-import Tabs from '../components/Layout/Filters/Tabs'
+// import Tabs from '../components/Layout/Filters/Tabs'
 import {useState} from 'react'
-import SecondayCTA from '../components/Layout/Buttons/Secondary'
-import product from '../assets/data/products'
-import HomeProductCard from '../components/product/Cards/HomeProductCard'
+import SearchBar from '../components/Layout/Inputs/SearchBar'
+import { useRouter } from 'next/router'
+// import SecondayCTA from '../components/Layout/Buttons/Secondary'
+// import product from '../assets/data/products'
+// import HomeProductCard from '../components/product/Cards/HomeProductCard'
 
 export default function Home() {
 
-  const [tabSelected, setTabSelected] = useState(0);
+  const [keyword, setKeyword] = useState("");
+
+  const router = useRouter();
+
+  const searchHandler = (e) => {
+    e.preventDefault();
+    if (keyword) {
+      router.push(`/product?keyword=${keyword}`);
+    }
+  };
+
 
   return (
     <div>
@@ -34,28 +46,12 @@ export default function Home() {
 
       <Header background={background}>
         <div className={styles.Welcome_main}>
-          <div className={styles.Welcome_box}>
-            <h1>Welcome to <span>Xetra</span></h1>
-            <p>This is <span>not</span> a real life E-commerce site.</p>
+          <div className={styles.Welcome_searchbar}>
+            <SearchBar onSubmit={searchHandler} placeholder="Search" value={keyword} onChange={(e) => setKeyword(e.target.value)}/>
+            <p>Look up what you want to wear today</p>
           </div>
         </div>
       </Header>
-
-      <div className={styles.Home_section}>
-        <Tabs selected={tabSelected} setSelected={setTabSelected}>
-          { ["Men", "Women", "Children", "Otters"] }
-        </Tabs>
-        <RowsColumnGrid>
-          { product.map((product, i) => (
-              <div key={i} style={{ background: "#fff1", height: "15em" }}>
-                <HomeProductCard name={product.name} rating={product.rating} image={product.url}/>
-              </div>
-          )) }
-        </RowsColumnGrid>
-        <div className={styles.centerInside}>
-          <SecondayCTA padding={"0.3em 5em"}>See more</SecondayCTA>
-        </div>
-      </div>
 
     </div>
   )
